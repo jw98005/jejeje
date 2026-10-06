@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia's Arcade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>JULIA'S ARCADE</h1>
+        <p>⊹₊ ˚‧︵‿₊୨ ᰔ te amu ᰔ ୧₊‿︵‧ ˚ ₊⊹</p>
+    </header>
+
+    <main>
+        <!-- PANTALLA 1: BIENVENIDA -->
+        <section id="pantalla-inicio" class="welcome pantalla activa">
+            <h2>Bienvenidoms</h2>
+       
+            <div class="contenedor-botones">
+                <button id="quizButton" class="btn-quiz">PREGUNTA DIARIA</button>
+                <button id="enterButton">JUEGOS</button>
+                <button id="marketButton" class="btn-secundario">MARKET</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA 2: PREGUNTA DIARIA -->
+        <section id="pantalla-quiz" class="welcome pantalla">
+            <h2>Pregunta del Día</h2>
+            <p class="contador-puntos">Puntos: <span id="puntos-quiz">0</span> ⭐</p>
+
+            <div id="contenedor-quiz" class="tarjeta-quiz">
+                <p id="texto-pregunta" class="texto-pregunta">Cargando pregunta...</p>
+                <div id="opciones-container" class="opciones-grid"></div>
+            </div>
+
+            <button class="btn-volver" onclick="irA('pantalla-inicio')">VOLVER</button>
+        </section>
+       
+        <!-- PANTALLA 3: JUEGOS -->
+        <section id="pantalla-juegos" class="welcome pantalla">
+            <h2>Minijuegos</h2>
+            <p class="contador-puntos">Puntos: <span id="puntos-juegos">0</span> ⭐</p>
+
+            <div class="tarjetas-grid">
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/sanrio/Chococat05.gif" alt="game icon" class="game-icon">
+                    <h3>Wordle</h3>
+                    <p>Adivina la palabra</p>
+                    <span class="recompensa">+10 pts</span>
+                    <a href="https://wordle.es" target="_blank" onclick="sumarPuntosConTiempo(10, 'Wordle')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/animals/other/tumblr_0c7403fa53aa1e1c7be60e905e78dde6_f978046b_75.gif" alt="game icon" class="game-icon">
+                    <h3>Colorfle</h3>
+                    <p>Hace el colors</p>
+                    <span class="recompensa">+15 pts</span>
+                    <a href="https://colorfle.com/" target="_blank" onclick="sumarPuntosConTiempo(15, 'Colorfle')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/077.gif" alt="game icon" class="game-icon">
+                    <h3>Flagle</h3>
+                    <p>Adivina la bandera</p>
+                    <span class="recompensa">+20 pts</span>
+                    <a href="https://flagle-game.com/daily" target="_blank" onclick="sumarPuntosConTiempo(20, 'Flagle')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/animals/bird/tumblr_ma13ewATVx1qid2nw540.gif" alt="game icon" class="game-icon">
+                    <h3>Meloguessr</h3>
+                    <p>Adivina la canción</p>
+                    <span class="recompensa">+10 pts</span>
+                    <a href="https://meloguessr.com/" target="_blank" onclick="sumarPuntosConTiempo(10, 'Meloguessr')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/disney/mickey/8289354.gif" alt="game icon" class="game-icon">
+                    <h3>Cartoon Guesser</h3>
+                    <p>Adivina la caricatura</p>
+                    <span class="recompensa">+10 pts</span>
+                    <a href="https://cartoonguesser.pythonanywhere.com/" target="_blank" onclick="sumarPuntosConTiempo(10, 'Cartoon Guesser')">JUGAR</a>
+                </div>
+                
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/animals/bird/tumblr_inline_mto66ewrHL1qid2nw540.gif" alt="game icon" class="game-icon">
+                    <h3>Historydle</h3>
+                    <p>Adivina cosas de historia</p>
+                    <span class="recompensa">+30 pts</span>
+                    <a href="https://historydle.com/" target="_blank" onclick="sumarPuntosConTiempo(30, 'Historydle')">JUGAR</a>
+                </div>
+                
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/sanrio/20100413223314ade.gif" alt="game icon" class="game-icon">
+                    <h3>Gamedle</h3>
+                    <p>Adivina el juego</p>
+                    <span class="recompensa">+30 pts</span>
+                    <a href="https://guessthe.game/" target="_blank" onclick="sumarPuntosConTiempo(30, 'Gamedle')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/sanrio/Keroppi27.gif" alt="game icon" class="game-icon">
+                    <h3>Loldle</h3>
+                    <p>Adivina cosas del lol wakala</p>
+                    <span class="recompensa">+5 pts</span>
+                    <a href="https://loldle.net/" target="_blank" onclick="sumarPuntosConTiempo(5, 'Loldle')">JUGAR</a>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://artwork.neocities.org/pixels/tiny/sanx/20111123032846dba.gif" alt="game icon" class="game-icon">
+                    <h3>Calcle</h3>
+                    <p>Adivina el cálculo</p>
+                    <span class="recompensa">+10 pts</span>
+                    <a href="https://calclegame.com/" target="_blank" onclick="sumarPuntosConTiempo(10, 'Calcle')">JUGAR</a>
+
+            </div>
+
+            <button class="btn-volver" onclick="irA('pantalla-inicio')">VOLVER</button>
+        </section>
+
+        <!-- PANTALLA 4: MARKET -->
+       <section id="pantalla-market" class="welcome pantalla">
+            <h2>Market</h2>
+            <p class="contador-puntos">Tus puntos: <span id="puntos-market">0</span> ⭐</p>
+
+            <div class="tarjetas-grid">
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/pinci.png" alt="picnic" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(30, 'Picnic')">CANJEAR (30 ⭐)</button>
+                </div>
+
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/orq.png" alt="orquesta" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(50, 'Orquesta')">CANJEAR (50 ⭐)</button>
+                </div>
+
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/cine.png" alt="Cine" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(40, 'Cine')">CANJEAR (40 ⭐)</button>
+                </div>
+                
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/cami.png" alt="Caminata" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(5, 'Caminata')">CANJEAR (5 ⭐)</button>
+                </div>
+
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/arcade.png" alt="arcade" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(40, 'Arcade')">CANJEAR (40 ⭐)</button>
+                </div>
+
+                <div class="tarjeta tarjeta-market">
+                    <img src="img/COMPONER.png" alt="Componer" class="market-img">
+                    <button class="btn-canjear" onclick="canjearCita(20, 'Componer')">CANJEAR (20 ⭐)</button>
+                </div>
+
+            </div>
+
+            <button class="btn-volver" onclick="irA('pantalla-inicio')">VOLVER</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
